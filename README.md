@@ -1,1 +1,2 @@
-# adventofcode.com_2019
+# participation in adventofcode.com
+visit: https://adventofcode.com/2019/
