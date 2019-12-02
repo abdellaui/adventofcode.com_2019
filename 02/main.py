@@ -7,6 +7,15 @@ def first_task():
         return process(buffer)
 
 
+def second_task(noun, verb):
+    with open('input.txt') as f:
+        buffer = string_to_instruction_buffer(f.readline())
+        # 1202 program alarm
+        buffer[1] = noun
+        buffer[2] = verb
+        return process(buffer)
+
+
 def operate(buffer, pointer, lambda_func):
     left_hand_p = buffer[pointer + 1]
     right_hand_p = buffer[pointer + 2]
@@ -45,3 +54,17 @@ if __name__ == '__main__':
     assert process(string_to_instruction_buffer("1,1,1,4,99,5,6,0,99")) == "30,1,1,4,2,5,6,0,99"
 
     print("first_task: ", first_task())
+
+    """
+    # ctrl+c is your friend
+    while True:
+        noun = int(input("Enter noun: "))
+        verb = int(input("Enter verb: "))
+        print("second_task: ", second_task(noun, verb))
+    """
+    for noun in range(0, 100, 1):
+        for verb in range(0, 100, 1):
+            result = second_task(noun, verb).split(",")[0]
+            if result == "19690720":
+                print("second_task: ", result, noun, verb)
+                break
