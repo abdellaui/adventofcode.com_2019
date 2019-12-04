@@ -22,7 +22,7 @@ def check_harder(number):
         count_of_numbers = [number.count(i) for i in number]
         """
         the two adjacent matching digits are not part of a larger group of matching digits
-        => at least, there exists one tuple of digits of size 2
+        => at least, there exists one tuple of digits size of 2
         """
         return 2 in count_of_numbers
     else:
